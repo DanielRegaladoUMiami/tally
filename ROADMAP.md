@@ -6,7 +6,7 @@
 - [x] Repo created (public, Apache 2.0)
 - [x] CLAUDE.md + ROADMAP + uv/ruff/pre-commit scaffold
 - [x] Validation verdict captured in decisions log
-- [ ] First feature issue cut
+- [x] v0.1 backlog cut into issues (#1–#9)
 
 ## Phase 1 — Ingestion → spend-mirror (the flagship)
 Collapse the onboarding tax; deliver the "how much have I spent on clothes?" reveal in the first session.
