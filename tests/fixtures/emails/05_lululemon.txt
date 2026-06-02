@@ -1,0 +1,17 @@
+From: lululemon <orders@lululemon.com>
+To: sofia@example.com
+Subject: Order Confirmed — we'll take it from here
+Date: Mon, 09 Feb 2026 16:50:00 -0500
+Content-Type: text/plain; charset="utf-8"
+
+Hi Sofia,
+
+Your order is confirmed.
+
+Align High-Rise Legging 25"     $98.00
+Scuba Oversized Half-Zip Hoodie $118.00
+Swiftly Tech Short-Sleeve Tee   $68.00
+
+Subtotal                        $284.00
+Shipping                        Free
+Total                           $284.00

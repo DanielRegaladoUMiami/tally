@@ -10,12 +10,15 @@
 
 ## Phase 1 — Ingestion → spend-mirror (the flagship)
 Collapse the onboarding tax; deliver the "how much have I spent on clothes?" reveal in the first session.
-- [ ] Forward-receipt-to-inbox + manual receipt upload
-- [ ] Order-email parser for top ~10 Gen-Z retailers (item, price, retailer photo, date)
-- [ ] Spend dashboard: total (YTD + all-time), by month / retailer / category, avg item price, most/least expensive
-- [ ] Shareable "your clothing spend" card (screenshot-optimized for TikTok)
-- [ ] Auto-populated closet (item photo + price + date); one-tap add for offline buys via SAM cutout + coarse VLM tag
-- [ ] Cost-per-wear seeded automatically + fast "I wore this" tap
+- [~] Order-email parser (6 Gen-Z retailers; generic line-item extractor) — first slice landed (#1)
+- [x] Spend dashboard: total (YTD + all-time), by month / retailer / category, avg, most/least expensive (#2)
+- [x] Shareable "your clothing spend" card (SVG, screenshot-optimized) (#3)
+- [~] Cost-per-wear computed per item (auto-seeded in demo) — "I wore this" tap is UI-pending (#5)
+- [ ] Forward-receipt-to-inbox intake + manual receipt upload (real ingress) (#1)
+- [ ] Expand parser to top ~10 retailers + HTML-email handling + item photos (#1)
+- [ ] Auto-populated closet with photos via SAM cutout + coarse VLM tag (#4)
+
+> First runnable slice shipped: `PYTHONPATH=src uv run python -m tally` → spend report + card. See README Demo.
 
 ## Phase 2 — Resale-valuation engine (the moat)
 Neutral cross-platform "closet net worth" on legally-sourced comps.

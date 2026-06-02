@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tally — your clothing spend</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #0f0d16; color: #ece9f5;
+  font-family: Inter, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 40px 28px 80px; }
+h1 { font-size: 22px; letter-spacing: 4px; color: #b9a7ff; margin: 0 0 4px; }
+.sub { color: #8a8499; margin: 0 0 36px; }
+.grid { display: grid; grid-template-columns: 360px 1fr; gap: 36px; align-items: start; }
+@media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+.card-frame { border-radius: 28px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.5); }
+.card-frame svg { width: 100%; height: auto; display: block; }
+.panel { background: #181423; border: 1px solid #2a2338; border-radius: 20px;
+  padding: 24px 26px; margin-bottom: 24px; }
+.panel h2 { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+  color: #8a8499; margin: 0 0 18px; }
+.headline { display: flex; gap: 28px; flex-wrap: wrap; }
+.stat .big { font-size: 40px; font-weight: 800; }
+.stat .lbl { color: #8a8499; font-size: 13px; }
+.bar-row { display: grid; grid-template-columns: 120px 1fr 90px; gap: 12px;
+  align-items: center; margin: 9px 0; font-size: 14px; }
+.bar-label { color: #c9c4d8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bar-track { background: #241d33; border-radius: 999px; height: 12px; overflow: hidden; }
+.bar-fill { display: block; height: 100%; border-radius: 999px; }
+.bar-val { text-align: right; color: #ece9f5; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+td { padding: 10px 6px; border-bottom: 1px solid #241d33; }
+.num { text-align: right; white-space: nowrap; }
+.muted { color: #8a8499; }
+.chip { display: inline-block; width: 10px; height: 10px; border-radius: 3px;
+  margin-right: 10px; vertical-align: middle; }
+.foot { color: #5d5872; font-size: 12px; margin-top: 30px; }
+</style></head>
+<body><div class="wrap">
+  <h1>TALLY</h1>
+  <p class="sub">The closet that fills itself · report generated 2026-06-02</p>
+  <div class="grid">
+    <div>
+      <div class="card-frame"><svg xmlns="http://www.w3.org/2000/svg"
+     width="1080" height="1350" viewBox="0 0 1080 1350">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#15121f"/>
+      <stop offset="1" stop-color="#241a33"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1350" fill="url(#bg)"/>
+  <rect x="64" y="64" width="952" height="1222" rx="44"
+        fill="#1c1726" stroke="#322a44" stroke-width="2"/>
+  <text x="120" y="190" fill="#ef476f" font-size="34" font-weight="700" letter-spacing="6"
+        font-family="Inter, Arial, sans-serif">TALLY</text>
+  <text x="120" y="430" fill="#9aa0b4" font-size="44" font-family="Inter, Arial, sans-serif">
+    Since I started tracking, I've spent
+  </text>
+  <text x="116" y="640" fill="#ffffff" font-size="200" font-weight="800"
+        font-family="Inter, Arial, sans-serif">$1,232</text>
+  <text x="120" y="720" fill="#ef476f" font-size="44" font-weight="600"
+        font-family="Inter, Arial, sans-serif">on clothes 👀</text>
+  <line x1="120" y1="980" x2="960" y2="980" stroke="#322a44" stroke-width="2"/>
+  <text x="120" y="1066" fill="#9aa0b4" font-size="30" font-family="Inter, Arial, sans-serif">ITEMS</text><text x="120" y="1116" fill="#ffffff" font-size="52" font-weight="700" font-family="Inter, Arial, sans-serif">21</text>
+  <text x="420" y="1066" fill="#9aa0b4" font-size="30" font-family="Inter, Arial, sans-serif">AVG / ITEM</text><text x="420" y="1116" fill="#ffffff" font-size="52" font-weight="700" font-family="Inter, Arial, sans-serif">$59</text>
+  <text x="720" y="1066" fill="#9aa0b4" font-size="30" font-family="Inter, Arial, sans-serif">TOP CATEGORY</text><text x="720" y="1116" fill="#ffffff" font-size="52" font-weight="700" font-family="Inter, Arial, sans-serif">Knitwear</text>
+  <text x="120" y="1230" fill="#6c6480" font-size="30" font-family="Inter, Arial, sans-serif">
+    the closet that fills itself — tally
+  </text>
+</svg></div>
+      <p class="foot">↑ shareable card (issue #3) — built to screenshot</p>
+    </div>
+    <div>
+      <div class="panel">
+        <h2>How much have I spent on clothes?</h2>
+        <div class="headline">
+          <div class="stat"><div class="big">$1,232.48</div>
+            <div class="lbl">all-time</div></div>
+          <div class="stat"><div class="big">$965.00</div>
+            <div class="lbl">this year (2026)</div></div>
+          <div class="stat"><div class="big">21</div>
+            <div class="lbl">items</div></div>
+          <div class="stat"><div class="big">$58.69</div>
+            <div class="lbl">avg / item</div></div>
+        </div>
+      </div>
+      <div class="panel"><h2>By category</h2><div class="bar-row"><span class="bar-label">Knitwear</span><span class="bar-track"><span class="bar-fill" style="width:100%;background:#ef476f"></span></span><span class="bar-val">$353.00</span></div>
+<div class="bar-row"><span class="bar-label">Denim</span><span class="bar-track"><span class="bar-fill" style="width:50%;background:#4d8af0"></span></span><span class="bar-val">$175.00</span></div>
+<div class="bar-row"><span class="bar-label">Tops</span><span class="bar-track"><span class="bar-fill" style="width:43%;background:#ffd166"></span></span><span class="bar-val">$151.50</span></div>
+<div class="bar-row"><span class="bar-label">Bottoms</span><span class="bar-track"><span class="bar-fill" style="width:35%;background:#06d6a0"></span></span><span class="bar-val">$124.00</span></div>
+<div class="bar-row"><span class="bar-label">Dresses</span><span class="bar-track"><span class="bar-fill" style="width:29%;background:#ff6b9d"></span></span><span class="bar-val">$101.99</span></div>
+<div class="bar-row"><span class="bar-label">Activewear</span><span class="bar-track"><span class="bar-fill" style="width:28%;background:#118ab2"></span></span><span class="bar-val">$98.00</span></div>
+<div class="bar-row"><span class="bar-label">Outerwear</span><span class="bar-track"><span class="bar-fill" style="width:25%;background:#c77dff"></span></span><span class="bar-val">$89.00</span></div>
+<div class="bar-row"><span class="bar-label">Skirts</span><span class="bar-track"><span class="bar-fill" style="width:15%;background:#ff99c8"></span></span><span class="bar-val">$52.00</span></div>
+<div class="bar-row"><span class="bar-label">Bags</span><span class="bar-track"><span class="bar-fill" style="width:14%;background:#8d99ae"></span></span><span class="bar-val">$48.00</span></div>
+<div class="bar-row"><span class="bar-label">Shoes</span><span class="bar-track"><span class="bar-fill" style="width:6%;background:#f78c6b"></span></span><span class="bar-val">$21.99</span></div>
+<div class="bar-row"><span class="bar-label">Accessories</span><span class="bar-track"><span class="bar-fill" style="width:5%;background:#a0c4ff"></span></span><span class="bar-val">$18.00</span></div></div>
+      <div class="panel"><h2>By retailer</h2><div class="bar-row"><span class="bar-label">Lululemon</span><span class="bar-track"><span class="bar-fill" style="width:100%;background:#7c5cff"></span></span><span class="bar-val">$284.00</span></div>
+<div class="bar-row"><span class="bar-label">Abercrombie</span><span class="bar-track"><span class="bar-fill" style="width:83%;background:#7c5cff"></span></span><span class="bar-val">$237.00</span></div>
+<div class="bar-row"><span class="bar-label">Aritzia</span><span class="bar-track"><span class="bar-fill" style="width:80%;background:#7c5cff"></span></span><span class="bar-val">$227.00</span></div>
+<div class="bar-row"><span class="bar-label">Princess Polly</span><span class="bar-track"><span class="bar-fill" style="width:76%;background:#7c5cff"></span></span><span class="bar-val">$217.00</span></div>
+<div class="bar-row"><span class="bar-label">Urban Outfitters</span><span class="bar-track"><span class="bar-fill" style="width:73%;background:#7c5cff"></span></span><span class="bar-val">$207.00</span></div>
+<div class="bar-row"><span class="bar-label">SHEIN</span><span class="bar-track"><span class="bar-fill" style="width:21%;background:#7c5cff"></span></span><span class="bar-val">$60.48</span></div></div>
+      <div class="panel"><h2>By month</h2><div class="bar-row"><span class="bar-label">2025-01</span><span class="bar-track"><span class="bar-fill" style="width:73%;background:#7c5cff"></span></span><span class="bar-val">$207.00</span></div>
+<div class="bar-row"><span class="bar-label">2025-03</span><span class="bar-track"><span class="bar-fill" style="width:21%;background:#7c5cff"></span></span><span class="bar-val">$60.48</span></div>
+<div class="bar-row"><span class="bar-label">2026-01</span><span class="bar-track"><span class="bar-fill" style="width:80%;background:#7c5cff"></span></span><span class="bar-val">$227.00</span></div>
+<div class="bar-row"><span class="bar-label">2026-02</span><span class="bar-track"><span class="bar-fill" style="width:100%;background:#7c5cff"></span></span><span class="bar-val">$284.00</span></div>
+<div class="bar-row"><span class="bar-label">2026-03</span><span class="bar-track"><span class="bar-fill" style="width:76%;background:#7c5cff"></span></span><span class="bar-val">$217.00</span></div>
+<div class="bar-row"><span class="bar-label">2026-05</span><span class="bar-track"><span class="bar-fill" style="width:83%;background:#7c5cff"></span></span><span class="bar-val">$237.00</span></div></div>
+      <div class="panel"><h2>Most / least expensive</h2>
+        <p>💸 Most: Wilfred Effortless Cardigan — $128.00<br>🪙 Least: Oversized Graphic Tee — $8.50</p></div>
+      <div class="panel"><h2>Top items · cost-per-wear</h2>
+        <table><tbody><tr><td><span class='chip' style='background:#ef476f'></span>Wilfred Effortless Cardigan</td><td class='muted'>Aritzia</td><td class='muted'>Knitwear</td><td class='num'>$128.00</td><td class='num muted'>$25.60/wear</td></tr>
+<tr><td><span class='chip' style='background:#ef476f'></span>Scuba Oversized Half-Zip Hoodie</td><td class='muted'>Lululemon</td><td class='muted'>Knitwear</td><td class='num'>$118.00</td><td class='num muted'>$59.00/wear</td></tr>
+<tr><td><span class='chip' style='background:#118ab2'></span>Align High-Rise Legging 25&quot;</td><td class='muted'>Lululemon</td><td class='muted'>Activewear</td><td class='num'>$98.00</td><td class='num muted'>$98.00/wear</td></tr>
+<tr><td><span class='chip' style='background:#ff6b9d'></span>Lirika Matoshi Floral Maxi Dress</td><td class='muted'>Princess Polly</td><td class='muted'>Dresses</td><td class='num'>$89.00</td><td class='num muted'>$89.00/wear</td></tr>
+<tr><td><span class='chip' style='background:#c77dff'></span>iets frans Faux Fur Jacket</td><td class='muted'>Urban Outfitters</td><td class='muted'>Outerwear</td><td class='num'>$89.00</td><td class='num muted'>$44.50/wear</td></tr>
+<tr><td><span class='chip' style='background:#4d8af0'></span>Curve Love High Rise Ankle Jean</td><td class='muted'>Abercrombie</td><td class='muted'>Denim</td><td class='num'>$89.00</td><td class='num muted'>$89.00/wear</td></tr>
+<tr><td><span class='chip' style='background:#4d8af0'></span>BDG High-Waisted Baggy Jean</td><td class='muted'>Urban Outfitters</td><td class='muted'>Denim</td><td class='num'>$69.00</td><td class='num muted'>$69.00/wear</td></tr>
+<tr><td><span class='chip' style='background:#ffd166'></span>Swiftly Tech Short-Sleeve Tee</td><td class='muted'>Lululemon</td><td class='muted'>Tops</td><td class='num'>$68.00</td><td class='num muted'>$22.67/wear</td></tr></tbody></table></div>
+    </div>
+  </div>
+  <p class="foot">Tally · data parsed from order-confirmation emails · prices in USD</p>
+</div></body></html>

@@ -1,0 +1,17 @@
+From: Urban Outfitters <uoanswers@urbanoutfitters.com>
+To: sofia@example.com
+Subject: Your UO order is on its way
+Date: Fri, 24 Jan 2025 08:15:00 -0500
+Content-Type: text/plain; charset="utf-8"
+
+Hey Sofia — thanks for your order!
+
+Items in this shipment:
+* BDG High-Waisted Baggy Jean        $69.00
+* UO Cropped Hoodie Sweatshirt       $49.00
+* iets frans Faux Fur Jacket         $89.00
+
+Subtotal      $207.00
+Shipping      $5.00
+Tax           $14.49
+Total         $226.49

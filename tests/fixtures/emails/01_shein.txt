@@ -1,0 +1,21 @@
+From: SHEIN <orders@shein.com>
+To: sofia@example.com
+Subject: Your SHEIN order GSHM8821 is confirmed!
+Date: Wed, 12 Mar 2025 14:03:00 -0400
+Content-Type: text/plain; charset="utf-8"
+
+Hi Sofia,
+
+Thanks for shopping with SHEIN! Here's what's on the way:
+
+- Ribbed Bodycon Mini Dress      $12.99
+- Oversized Graphic Tee          $8.50
+- High Waist Skinny Jeans        $17.00
+- Strappy Block Heel Sandals     $21.99
+
+Subtotal:                        $60.48
+Shipping:                        $3.99
+Estimated Tax:                   $4.23
+Total:                           $68.70
+
+Estimated delivery: Mar 20, 2025

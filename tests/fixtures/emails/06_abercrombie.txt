@@ -1,0 +1,20 @@
+From: Abercrombie & Fitch <orders@abercrombie.com>
+To: sofia@example.com
+Subject: Thanks for your order! (#AF77451208)
+Date: Fri, 15 May 2026 12:09:00 -0400
+Content-Type: text/plain; charset="utf-8"
+
+Hi Sofia,
+
+Here's your order confirmation.
+
+Order details:
+1x The A&F Mara Tube Top                 $40.00
+1x Curve Love High Rise Ankle Jean       $89.00
+1x Linen-Blend Tailored Short            $60.00
+1x Crossbody Tote Bag                     $48.00
+
+Merchandise Subtotal                     $237.00
+You Saved                                -$59.25
+Shipping                                  $0.00
+Total                                    $177.75

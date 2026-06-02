@@ -1,0 +1,18 @@
+From: Aritzia <service@aritzia.com>
+To: sofia@example.com
+Subject: Order Confirmation #AZ-4471920
+Date: Mon, 19 Jan 2026 10:41:00 -0500
+Content-Type: text/plain; charset="utf-8"
+
+Hi Sofia, we've received your order.
+
+Your items
+  1 x Wilfred Effortless Cardigan ............ $128.00
+  1 x TNA Cozy Fleece Sweatpant .............. $64.00
+  1 x Babaton Contour Tank Top ............... $35.00
+
+Subtotal ..................................... $227.00
+Shipping ..................................... FREE
+Total ........................................ $227.00
+
+Thank you for shopping Aritzia.
