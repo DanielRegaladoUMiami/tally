@@ -23,8 +23,12 @@ Collapse the onboarding tax; deliver the "how much have I spent on clothes?" rev
 ### UI prototype (frontend/)
 - [x] Editorial design system (Vite + React, Fraunces + Inter, ivory/charcoal/serif)
 - [x] Connect → Spend reveal (animated count-up) → Closet grid → Share card
-- [ ] Wire UI to the real ingestion API (replace hardcoded `frontend/src/data.ts`)
-- [ ] Onboarding polish + share-image export (canvas/SVG) for the card
+- [x] Spend-over-time sparkline
+- [x] Item detail + resale value + sell-through + list-it-out handoff (closet→resale loop)
+- [x] Resale value surfaced across the closet ("worth ≈ $X to resell")
+- [x] Share card exports as a real PNG (canvas)
+- [ ] Wire UI to the real ingestion + valuation API (replace hardcoded `frontend/src/data.ts`)
+- [ ] Onboarding polish; "I wore this" + listings persistence
 
 ## Phase 2 — Resale-valuation engine (the moat)
 Neutral cross-platform "closet net worth" on legally-sourced comps.

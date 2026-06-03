@@ -10,18 +10,22 @@
 
 <table>
   <tr>
-    <td><img src="./docs/demo/app_01_connect.png" width="190" alt="Connect"></td>
-    <td><img src="./docs/demo/app_02_spend.png" width="190" alt="Spend reveal"></td>
-    <td><img src="./docs/demo/app_03_closet.png" width="190" alt="Closet"></td>
-    <td><img src="./docs/demo/app_04_share.png" width="190" alt="Share card"></td>
+    <td><img src="./docs/demo/app_01_connect.png" width="150" alt="Connect"></td>
+    <td><img src="./docs/demo/app_02_spend.png" width="150" alt="Spend reveal"></td>
+    <td><img src="./docs/demo/app_03_closet.png" width="150" alt="Closet"></td>
+    <td><img src="./docs/demo/app_05_detail.png" width="150" alt="Item detail + resale"></td>
+    <td><img src="./docs/demo/app_04_share.png" width="150" alt="Share card"></td>
   </tr>
   <tr>
     <td align="center"><sub>Connect</sub></td>
     <td align="center"><sub>Spend reveal</sub></td>
     <td align="center"><sub>Closet</sub></td>
+    <td align="center"><sub>Resale + sell-it</sub></td>
     <td align="center"><sub>Share card</sub></td>
   </tr>
 </table>
+
+Tap any item to see its **cost-per-wear**, **estimated resale value** ("≈ 46% of what you paid"), sell-through, and a one-tap **list-it-out** handoff to Poshmark/eBay — the closet→resale loop (the moat), read-only and on your terms. The Share card exports as a real PNG.
 
 Run it: `cd frontend && npm install && npm run dev` → http://127.0.0.1:5173
 

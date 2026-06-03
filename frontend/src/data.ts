@@ -71,6 +71,7 @@ export type Summary = {
   avgCents: number;
   byCategory: { label: Category; cents: number }[];
   byRetailer: { label: string; cents: number }[];
+  byMonth: { label: string; cents: number }[]; // chronological "YYYY-MM"
   mostExpensive: Item;
   bestValue: Item; // lowest cost-per-wear among worn items
 };
@@ -87,9 +88,12 @@ export function buildSummary(items: Item[] = ITEMS): Summary {
 
   const cat = new Map<Category, number>();
   const ret = new Map<string, number>();
+  const mon = new Map<string, number>();
   for (const i of items) {
     cat.set(i.category, (cat.get(i.category) ?? 0) + i.priceCents);
     ret.set(i.retailer, (ret.get(i.retailer) ?? 0) + i.priceCents);
+    const ym = i.date.slice(0, 7);
+    mon.set(ym, (mon.get(ym) ?? 0) + i.priceCents);
   }
 
   const worn = items.filter((i) => i.wears > 0);
@@ -100,6 +104,9 @@ export function buildSummary(items: Item[] = ITEMS): Summary {
     avgCents: Math.round(total / items.length),
     byCategory: sortDesc([...cat].map(([label, cents]) => ({ label, cents }))),
     byRetailer: sortDesc([...ret].map(([label, cents]) => ({ label, cents }))),
+    byMonth: [...mon]
+      .sort((a, b) => (a[0] < b[0] ? -1 : 1))
+      .map(([label, cents]) => ({ label, cents })),
     mostExpensive: items.reduce((a, b) => (b.priceCents > a.priceCents ? b : a)),
     bestValue: worn.reduce((a, b) =>
       b.priceCents / b.wears < a.priceCents / a.wears ? b : a,
@@ -117,4 +124,36 @@ export function money(cents: number, withCents = true): string {
 export function costPerWear(item: Item): string {
   if (item.wears <= 0) return "not worn yet";
   return money(Math.round(item.priceCents / item.wears)) + " / wear";
+}
+
+// ----- Resale valuation (MOCK) -------------------------------------------- //
+// Placeholder for the real cross-platform sold-comps engine. Depreciation by
+// category × brand desirability. Clearly an estimate in the UI.
+const RESALE_CAT: Record<Category, number> = {
+  Bags: 0.55, Shoes: 0.45, Outerwear: 0.5, Denim: 0.45, Knitwear: 0.4,
+  Dresses: 0.38, Activewear: 0.45, Tops: 0.3, Bottoms: 0.35, Skirts: 0.38,
+  Accessories: 0.5,
+};
+const RESALE_BRAND: Record<string, number> = {
+  Lululemon: 1.2, Aritzia: 1.15, "Free People": 1.1, Abercrombie: 1.0,
+  "Urban Outfitters": 0.95, "Princess Polly": 0.85, SHEIN: 0.6,
+};
+
+export function estResaleCents(i: Item): number {
+  const c = RESALE_CAT[i.category] ?? 0.4;
+  const b = RESALE_BRAND[i.retailer] ?? 1;
+  return Math.max(300, Math.round((i.priceCents * c * b) / 10) * 10);
+}
+
+export function sellThrough(i: Item): { pct: number; label: string } {
+  const b = RESALE_BRAND[i.retailer] ?? 1;
+  const fast = ["Denim", "Bags", "Activewear", "Outerwear"].includes(i.category);
+  let pct = 48 + (b - 1) * 70 + (fast ? 10 : 0);
+  pct = Math.max(22, Math.min(92, Math.round(pct)));
+  const label = pct >= 65 ? "Sells fast" : pct >= 45 ? "Steady demand" : "Slow to sell";
+  return { pct, label };
+}
+
+export function closetResaleCents(items: Item[] = ITEMS): number {
+  return items.reduce((s, i) => s + estResaleCents(i), 0);
 }

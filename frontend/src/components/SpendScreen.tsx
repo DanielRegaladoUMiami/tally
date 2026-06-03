@@ -4,11 +4,17 @@ import CountUp from "./CountUp";
 
 type Scope = "year" | "all";
 
+const monthLabel = (ym: string) => {
+  const [y, m] = ym.split("-");
+  return `${Number(m)}/${y.slice(2)}`;
+};
+
 export default function SpendScreen({ summary }: { summary: Summary }) {
   const [scope, setScope] = useState<Scope>("year");
   const amount = scope === "year" ? summary.ytdCents : summary.totalCents;
   const maxCat = summary.byCategory[0]?.cents ?? 1;
   const maxRet = summary.byRetailer[0]?.cents ?? 1;
+  const maxMonth = Math.max(...summary.byMonth.map((m) => m.cents), 1);
   const most = summary.mostExpensive;
   const best = summary.bestValue;
 
@@ -46,6 +52,20 @@ export default function SpendScreen({ summary }: { summary: Summary }) {
           All time
         </button>
       </div>
+
+      <hr className="rule" />
+
+      <section className="section">
+        <span className="eyebrow">Across time</span>
+        <div className="spark">
+          {summary.byMonth.map((m) => (
+            <div className="col" key={m.label}>
+              <span className="b" style={{ height: `${Math.max(10, (m.cents / maxMonth) * 100)}%` }} />
+              <span className="m">{monthLabel(m.label)}</span>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <hr className="rule" />
 

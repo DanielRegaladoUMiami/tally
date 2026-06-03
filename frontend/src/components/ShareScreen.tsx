@@ -1,7 +1,21 @@
-import { money, type Summary } from "../data";
+import { useState } from "react";
+import { closetResaleCents, money, type Summary } from "../data";
+import { downloadShareCard, shareShareCard } from "../shareImage";
 
 export default function ShareScreen({ summary }: { summary: Summary }) {
+  const [busy, setBusy] = useState(false);
   const topCategory = summary.byCategory[0]?.label ?? "—";
+  const resale = closetResaleCents();
+
+  const run = (fn: () => Promise<void>) => async () => {
+    setBusy(true);
+    try {
+      await fn();
+    } finally {
+      setBusy(false);
+    }
+  };
+
   return (
     <>
       <header className="appbar">
@@ -29,12 +43,17 @@ export default function ShareScreen({ summary }: { summary: Summary }) {
               <div className="l">Top category</div>
             </div>
           </div>
+          <span className="worth">Closet worth ≈ {money(resale, false)} to resell</span>
           <span className="tag">the closet that fills itself</span>
         </div>
 
         <div className="share-actions">
-          <button className="btn btn-ghost btn-block">Save image</button>
-          <button className="btn btn-primary btn-block">Share</button>
+          <button className="btn btn-ghost btn-block" disabled={busy} onClick={run(() => downloadShareCard(summary, resale))}>
+            {busy ? "Saving…" : "Save image"}
+          </button>
+          <button className="btn btn-primary btn-block" disabled={busy} onClick={run(() => shareShareCard(summary, resale))}>
+            Share
+          </button>
         </div>
       </div>
     </>

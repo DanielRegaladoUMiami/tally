@@ -459,13 +459,19 @@ body {
   color: var(--ink-soft);
   margin-top: 2px;
 }
+.poster .worth {
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--ink-2);
+}
 .poster .tag {
-  margin-top: 22px;
+  margin-top: 8px;
   font-size: 11px;
   letter-spacing: 0.05em;
   color: var(--ink-soft);
 }
 .share-actions { display: flex; gap: 12px; margin-top: 20px; }
+.btn:disabled { opacity: 0.5; cursor: default; }
 
 /* ----- buttons ----- */
 .btn {
@@ -575,7 +581,158 @@ body {
 .tab.active { color: var(--ink); }
 .tab.active .tl { font-weight: 600; }
 
+/* ----- resale pill on closet tiles ----- */
+.tile .img .resale-pill {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(251, 248, 241, 0.92);
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-size: 10px;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+}
+.closet-sub {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  margin: 0 0 18px;
+}
+.closet-sub b { color: var(--ink-2); font-weight: 600; }
+
+/* ----- item detail overlay ----- */
+.detail {
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.detail-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: rgba(251, 248, 241, 0.75);
+  backdrop-filter: blur(6px);
+  font-size: 12px;
+  color: var(--ink);
+  cursor: pointer;
+}
+.detail-body {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 44px;
+  scrollbar-width: none;
+}
+.detail-body::-webkit-scrollbar { display: none; }
+.detail-img {
+  height: 308px;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.detail-img .mono {
+  font-family: var(--serif);
+  font-size: 84px;
+  color: rgba(255, 255, 255, 0.94);
+}
+.detail-img .cat {
+  position: absolute;
+  bottom: 16px;
+  left: 26px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+.detail-head { padding: 22px 26px 2px; }
+.detail-head .rt {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 9px;
+}
+.detail-head h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.15;
+}
+.stat-row { display: flex; padding: 20px 26px; }
+.stat-row .st { flex: 1; }
+.stat-row .st + .st {
+  border-left: 1px solid var(--line);
+  padding-left: 18px;
+}
+.stat-row .st .n { font-family: var(--serif); font-size: 23px; }
+.stat-row .st .l {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 5px;
+}
+.detail-body > .btn-ghost { margin: 2px 26px 0; width: calc(100% - 52px); }
+.detail-body > .rule { margin-left: 26px; margin-right: 26px; }
+.detail-body > section { padding: 0 26px; }
+.resale { display: flex; align-items: baseline; gap: 12px; }
+.resale .big { font-family: var(--serif); font-size: 42px; }
+.resale .pct { font-size: 13px; color: var(--ink-2); }
+.sell { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+.sell-lbl { font-size: 12px; color: var(--ink); white-space: nowrap; }
+.sell-bar {
+  flex: 1;
+  height: 2px;
+  background: var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.sell-bar span { display: block; height: 100%; background: var(--accent); }
+.sell-pct {
+  font-size: 12px;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+.handoff { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+
+/* ----- spend sparkline ----- */
+.spark {
+  display: flex;
+  align-items: flex-end;
+  gap: 7px;
+  height: 54px;
+  margin: 2px 0 4px;
+}
+.spark .col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 7px; }
+.spark .col .b {
+  width: 100%;
+  max-width: 26px;
+  background: var(--line-strong);
+  border-radius: 2px 2px 0 0;
+  transform-origin: bottom;
+  animation: grow 0.8s 0.2s both cubic-bezier(0.22, 1, 0.36, 1);
+}
+.spark .col .m {
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+
 /* ----- animations ----- */
+@keyframes slideUp {
+  from { transform: translateY(18px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
