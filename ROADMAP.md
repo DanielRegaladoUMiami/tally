@@ -20,6 +20,12 @@ Collapse the onboarding tax; deliver the "how much have I spent on clothes?" rev
 
 > First runnable slice shipped: `PYTHONPATH=src uv run python -m tally` → spend report + card. See README Demo.
 
+### UI prototype (frontend/)
+- [x] Editorial design system (Vite + React, Fraunces + Inter, ivory/charcoal/serif)
+- [x] Connect → Spend reveal (animated count-up) → Closet grid → Share card
+- [ ] Wire UI to the real ingestion API (replace hardcoded `frontend/src/data.ts`)
+- [ ] Onboarding polish + share-image export (canvas/SVG) for the card
+
 ## Phase 2 — Resale-valuation engine (the moat)
 Neutral cross-platform "closet net worth" on legally-sourced comps.
 - [ ] Apply for eBay Browse / Marketplace Insights API (legal sold comps)

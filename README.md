@@ -2,15 +2,30 @@
 
 **The closet that fills itself.** Tally auto-imports your clothing purchases so you see what you've spent, what your closet is worth to resell, and what's worth selling next — without manually cataloging a single item.
 
-> Status: early MVP — the **ingestion → spend-mirror → shareable-card** slice runs end-to-end (see Demo). Plan in [`ROADMAP.md`](./ROADMAP.md); validation/scope rationale in [`docs/decisions/0001-scope-and-pivot.md`](./docs/decisions/0001-scope-and-pivot.md).
+> Status: early MVP — an interactive **editorial UI prototype** (Vite + React) over a Python **ingestion → spend** pipeline. Plan in [`ROADMAP.md`](./ROADMAP.md); validation/scope rationale in [`docs/decisions/0001-scope-and-pivot.md`](./docs/decisions/0001-scope-and-pivot.md).
 
 ## Demo
 
-Parse a folder of order-confirmation emails → a spend report + a shareable card, no manual cataloging:
+**The app** — connect your inbox, and your spend + closet fill themselves. Clean editorial direction, mobile prototype:
 
-![Tally spend report](./docs/demo/tally_report.png)
+<table>
+  <tr>
+    <td><img src="./docs/demo/app_01_connect.png" width="190" alt="Connect"></td>
+    <td><img src="./docs/demo/app_02_spend.png" width="190" alt="Spend reveal"></td>
+    <td><img src="./docs/demo/app_03_closet.png" width="190" alt="Closet"></td>
+    <td><img src="./docs/demo/app_04_share.png" width="190" alt="Share card"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Connect</sub></td>
+    <td align="center"><sub>Spend reveal</sub></td>
+    <td align="center"><sub>Closet</sub></td>
+    <td align="center"><sub>Share card</sub></td>
+  </tr>
+</table>
 
-The left panel is the screenshot-ready share card (issue #3); the right is the spend mirror (issue #2) built from parsed receipts (issue #1). Open [`examples/sample_report.html`](./examples/sample_report.html) for the interactive version.
+Run it: `cd frontend && npm install && npm run dev` → http://127.0.0.1:5173
+
+**The data layer** — a Python pipeline parses order-confirmation emails into the numbers behind the UI ([`src/tally`](./src/tally), 13 tests). Try it: `PYTHONPATH=src uv run python -m tally` (renders [`examples/sample_report.html`](./examples/sample_report.html)).
 
 ## Why
 - **The hook:** answer *"how much have I actually spent on clothes?"* in the first session — no manual cataloging. The closet is a byproduct of importing your purchases.

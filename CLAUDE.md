@@ -43,8 +43,16 @@ uv run pytest            # tests import from src/ via pytest pythonpath
 ```
 > Gotcha: `uv sync`'s editable install of this src-layout package isn't honored in some venvs (`import tally` fails). Tests are unaffected (pytest reads from `src/`). For a working editable in plain `uv run python`, run `uv pip install -e .` once after `uv sync`.
 
+## Frontend
+Interactive UI prototype in `frontend/` — Vite + React + TS, editorial aesthetic (ivory · charcoal · serif: Fraunces + Inter). Mobile phone-frame prototype with Connect → Spend reveal → Closet → Share card.
+```bash
+cd frontend && npm install && npm run dev   # http://127.0.0.1:5173
+```
+Design direction is **clean editorial / premium** (Aritzia-like), chosen by Daniel — keep it restrained, serif headlines, whitespace, muted category colors (no neon).
+
 ## Where things live
-- Source: `src/tally/`
+- Backend source: `src/tally/`
+- Frontend prototype: `frontend/` (Vite + React)
 - Tests: `tests/`
 - Experiments log: `docs/experiments/`
 - Decision log: `docs/decisions/`
