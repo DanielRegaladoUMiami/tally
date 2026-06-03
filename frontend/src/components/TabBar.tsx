@@ -1,4 +1,4 @@
-export type Tab = "spend" | "closet" | "share";
+export type Tab = "spend" | "closet" | "market" | "share";
 
 const ICONS: Record<Tab, JSX.Element> = {
   spend: (
@@ -14,6 +14,12 @@ const ICONS: Record<Tab, JSX.Element> = {
       <path d="M12 9.6 4.3 15c-.9.6-.5 2 .6 2h14.2c1.1 0 1.5-1.4.6-2L12 9.6Z" />
     </svg>
   ),
+  market: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="3 16 9 11 13 14 21 6" />
+      <polyline points="15 6 21 6 21 12" />
+    </svg>
+  ),
   share: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 3v12" />
@@ -23,7 +29,12 @@ const ICONS: Record<Tab, JSX.Element> = {
   ),
 };
 
-const LABELS: Record<Tab, string> = { spend: "Spend", closet: "Closet", share: "Share" };
+const LABELS: Record<Tab, string> = {
+  spend: "Spend",
+  closet: "Closet",
+  market: "Market",
+  share: "Share",
+};
 
 export default function TabBar({
   active,

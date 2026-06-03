@@ -157,3 +157,37 @@ export function sellThrough(i: Item): { pct: number; label: string } {
 export function closetResaleCents(items: Item[] = ITEMS): number {
   return items.reduce((s, i) => s + estResaleCents(i), 0);
 }
+
+// ----- "Closet as a portfolio" (MOCK market movement) --------------------- //
+// Quarterly % change in an item's resale value. Desirable brands + liquid
+// categories trend up; fast-fashion trends down. Deterministic.
+export function trendPct(i: Item): number {
+  const b = RESALE_BRAND[i.retailer] ?? 1; // 0.6..1.2
+  const liquid = ["Denim", "Bags", "Activewear", "Outerwear", "Shoes"].includes(i.category);
+  const hash = [...i.name].reduce((a, c) => a + c.charCodeAt(0), 0);
+  const p = (b - 1) * 30 + (liquid ? 3 : -1) + ((hash % 7) - 3);
+  return Math.round(Math.max(-14, Math.min(12, p)) * 10) / 10;
+}
+
+// Resale-value-weighted aggregate change for the whole closet.
+export function portfolioChangePct(items: Item[] = ITEMS): number {
+  const val = closetResaleCents(items);
+  if (val === 0) return 0;
+  const w = items.reduce((s, i) => s + estResaleCents(i) * trendPct(i), 0);
+  return Math.round((w / val) * 10) / 10;
+}
+
+// 6-point series of portfolio value (cents), ending at the current total.
+export function portfolioSeries(items: Item[] = ITEMS): number[] {
+  const total = closetResaleCents(items);
+  const chg = portfolioChangePct(items) / 100;
+  const start = total / (1 + chg || 1);
+  const out: number[] = [];
+  for (let i = 0; i < 6; i++) {
+    const base = start + (total - start) * (i / 5);
+    const wiggle = 1 + (((i * 37) % 9) - 4) / 400; // ±~1% deterministic
+    out.push(Math.round(base * wiggle));
+  }
+  out[5] = total;
+  return out;
+}

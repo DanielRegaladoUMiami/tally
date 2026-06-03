@@ -4,6 +4,7 @@ import StatusBar from "./components/StatusBar";
 import ConnectScreen from "./components/ConnectScreen";
 import SpendScreen from "./components/SpendScreen";
 import ClosetScreen from "./components/ClosetScreen";
+import MarketScreen from "./components/MarketScreen";
 import ShareScreen from "./components/ShareScreen";
 import TabBar, { type Tab } from "./components/TabBar";
 
@@ -25,6 +26,7 @@ export default function App() {
               <div className="body" key={tab}>
                 {tab === "spend" && <SpendScreen summary={summary} />}
                 {tab === "closet" && <ClosetScreen />}
+                {tab === "market" && <MarketScreen />}
                 {tab === "share" && <ShareScreen summary={summary} />}
               </div>
               <TabBar active={tab} onChange={setTab} />

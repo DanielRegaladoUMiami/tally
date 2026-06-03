@@ -27,6 +27,7 @@ Collapse the onboarding tax; deliver the "how much have I spent on clothes?" rev
 - [x] Item detail + resale value + sell-through + list-it-out handoff (closet→resale loop)
 - [x] Resale value surfaced across the closet ("worth ≈ $X to resell")
 - [x] Share card exports as a real PNG (canvas)
+- [x] Market tab — "closet as a portfolio" (resale value, value-over-time, top movers); see `docs/decisions/0002-closet-as-portfolio.md`
 - [ ] Wire UI to the real ingestion + valuation API (replace hardcoded `frontend/src/data.ts`)
 - [ ] Onboarding polish; "I wore this" + listings persistence
 
