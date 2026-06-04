@@ -108,8 +108,9 @@ export function buildSummary(items: Item[] = ITEMS): Summary {
       .sort((a, b) => (a[0] < b[0] ? -1 : 1))
       .map(([label, cents]) => ({ label, cents })),
     mostExpensive: items.reduce((a, b) => (b.priceCents > a.priceCents ? b : a)),
-    bestValue: worn.reduce((a, b) =>
-      b.priceCents / b.wears < a.priceCents / a.wears ? b : a,
+    // lowest cost-per-wear among worn items; fall back to all items if none worn
+    bestValue: (worn.length ? worn : items).reduce((a, b) =>
+      b.priceCents / Math.max(1, b.wears) < a.priceCents / Math.max(1, a.wears) ? b : a,
     ),
   };
 }

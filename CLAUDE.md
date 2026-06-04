@@ -47,6 +47,7 @@ uv run pytest            # tests import from src/ via pytest pythonpath
 Interactive UI prototype in `frontend/` — Vite + React + TS, editorial aesthetic (ivory · charcoal · serif: Fraunces + Inter). Mobile phone-frame prototype with Connect → Spend reveal → Closet → Share card.
 ```bash
 cd frontend && npm install && npm run dev   # http://127.0.0.1:5173
+npm test                                    # Vitest (data + screen tests)
 ```
 Design direction is **clean editorial / premium** (Aritzia-like), chosen by Daniel — keep it restrained, serif headlines, whitespace, muted category colors (no neon).
 

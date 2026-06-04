@@ -5,6 +5,8 @@ Interactive, mobile-framed prototype of the Tally app. **Vite + React + TypeScri
 ```bash
 npm install
 npm run dev      # http://127.0.0.1:5173
+npm test         # Vitest: data logic + screen render tests
+npm run build    # typecheck + production bundle
 ```
 
 ## Screens
