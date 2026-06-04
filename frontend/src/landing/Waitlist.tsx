@@ -1,7 +1,7 @@
 import { useEffect, useState, type FormEvent } from "react";
 
-// Plug a real endpoint here (Formspree / ConvertKit / your API) to capture
-// emails for real. Empty string = demo mode (stores locally, shows success).
+// Google Apps Script web-app URL (ends in /exec) that appends to a Sheet.
+// See docs/waitlist-setup.md. Empty string = demo mode (local only, no capture).
 const WAITLIST_ENDPOINT = "";
 const STORAGE_KEY = "tally_waitlisted";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -25,12 +25,15 @@ export default function Waitlist({ id }: { id: string }) {
     setStatus("submitting");
     try {
       if (WAITLIST_ENDPOINT) {
-        const res = await fetch(WAITLIST_ENDPOINT, {
+        // Apps Script can't answer a CORS preflight, so use no-cors + a
+        // "simple" content-type. The response is opaque, so a fetch that
+        // resolves (no network error) is treated as success.
+        await fetch(WAITLIST_ENDPOINT, {
           method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({ email }),
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify({ email, source: "landing" }),
         });
-        if (!res.ok) throw new Error("request failed");
       }
       localStorage.setItem(STORAGE_KEY, email);
       setStatus("done");
