@@ -4,10 +4,12 @@ Interactive, mobile-framed prototype of the Tally app. **Vite + React + TypeScri
 
 ```bash
 npm install
-npm run dev      # http://127.0.0.1:5173
-npm test         # Vitest: data logic + screen render tests
-npm run build    # typecheck + production bundle
+npm run dev      # landing → http://127.0.0.1:5173/tally/ · app → /tally/app.html
+npm test         # Vitest: data logic + screen render + waitlist tests
+npm run build    # typecheck + production bundle (multi-page)
 ```
+
+Two entry points: **`index.html`** = the marketing/landing + waitlist (the Pages front door), **`app.html`** = the product prototype. Deployed to GitHub Pages at `base: "/tally/"` via `.github/workflows/deploy-pages.yml`.
 
 ## Screens
 - **Connect** — "see what your closet really cost" → connect inbox (simulated).

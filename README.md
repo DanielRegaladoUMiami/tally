@@ -2,6 +2,8 @@
 
 **The closet that fills itself.** Tally auto-imports your clothing purchases so you see what you've spent, what your closet is worth to resell, and what's worth selling next — without manually cataloging a single item.
 
+**Live:** [landing + waitlist](https://danielregaladoumiami.github.io/tally/) · [app demo](https://danielregaladoumiami.github.io/tally/app.html)
+
 > Status: early MVP — an interactive **editorial UI prototype** (Vite + React) over a Python **ingestion → spend** pipeline. Plan in [`ROADMAP.md`](./ROADMAP.md); validation/scope rationale in [`docs/decisions/0001-scope-and-pivot.md`](./docs/decisions/0001-scope-and-pivot.md).
 
 ## Demo
